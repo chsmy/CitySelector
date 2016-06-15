@@ -138,9 +138,8 @@ public class CitySelecterActivity extends Activity {
 				hideSoftInput(mClearEditText.getWindowToken());
 				Intent data = new Intent();
 			    data.putExtra("cityName", ((SortModel)adapter.getItem(position-1)).getName());
-				setResult(1110, data);
-				CitySelecterActivity.this.finish();
-			    
+//				setResult(1110, data);
+//				CitySelecterActivity.this.finish();
 			}
 		});
 		
