@@ -1,9 +1,5 @@
 package mytex.chs.com.cityselector;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -22,12 +17,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import mytex.chs.com.cityselector.adapter.MyBaseAdapter;
 import mytex.chs.com.cityselector.adapter.SortAdapter;
@@ -118,6 +117,9 @@ public class CitySelecterActivity extends Activity {
 			@Override
 			public void onTouchingLetterChanged(String s) {
 				//该字母首次出现的位置
+				if(s.equals("热门")){
+					sortListView.setSelection(0);
+				}
 				int position = adapter.getPositionForSection(s.charAt(0));
 				if(position != -1){
 					sortListView.setSelection(position);
